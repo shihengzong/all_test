@@ -3,7 +3,7 @@
  * @Command: go test -v singly_linked_list_test.go
  * @Author: zongsh
  * @Date: 2019-08-27 11:14:37
- * @LastEditTime: 2019-08-27 15:34:52
+ * @LastEditTime: 2019-08-27 17:56:30
  * @LastEditors: zongsh
  */
 package linked_list_test
@@ -58,16 +58,18 @@ func (n *SinglyLinkedNode) AddNode(e Elem) {
 /*
  * @description:遍历表
  */
-func (n *SinglyLinkedNode) Traverse() []Elem {
+func (n *SinglyLinkedNode) Traverse() (int, []Elem) {
 	var list []Elem
+	count := 0
 	p := n
 	for nil != p {
 		p = p.NextNode
 		if nil != p {
 			list = append(list, p.Node)
+			count++
 		}
 	}
-	return list
+	return count, list
 }
 
 /*
@@ -112,15 +114,15 @@ func (n *SinglyLinkedNode) Delete(index int) error {
 /*
  * @description:获取固定位置节点，复杂度为o(n)
  */
-func (n *SinglyLinkedNode) Get(index int) Elem {
+func (n *SinglyLinkedNode) Get(index int) *Elem {
 	p := n
 	for i := 0; i < index; i++ {
 		p = p.NextNode
 		if nil == p {
-			return Elem{}
+			return nil
 		}
 	}
-	return p.Node
+	return &p.Node
 }
 
 func TestSinglyLinkedList(t *testing.T) {
