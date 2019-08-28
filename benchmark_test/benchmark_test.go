@@ -3,8 +3,9 @@
  * @Command: go test -bench=.
  * @Author: zongsh
  * @Date: 2019-08-19 09:35:54
- * @LastEditTime: 2019-08-20 13:46:38
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-08-28 17:05:30
+ * @LastEditors: zongsh
+ * @Detail: 1.文件名必须为 xxx_test.go    2.测试方法名必须为 BenchmarXXX()
  */
 package main
 

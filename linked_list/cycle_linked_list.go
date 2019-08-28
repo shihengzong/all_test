@@ -1,17 +1,16 @@
 /*
  * @Description: 数据结构 -- 循环链表(Cycle Linked List)
- * @Command: go test -v cycle_linked_list_test.go
+ * @Command: go test -v cycle_linked_list.go
  * @Author: zongsh
  * @Date: 2019-08-27 15:58:53
- * @LastEditTime: 2019-08-27 16:21:17
+ * @LastEditTime: 2019-08-28 16:34:43
  * @LastEditors: zongsh
  */
-package linked_list_test
+package linked_list
 
 import (
 	"errors"
 	"fmt"
-	"testing"
 )
 
 /*
@@ -140,31 +139,4 @@ func (n *CycleLinkedNode) Get(index int) CycleElem {
 		}
 	}
 	return p.Node
-}
-
-func TestCycleLinkedList(t *testing.T) {
-	// 初始化头结点
-	list := InitCycleNode()
-
-	// 添加节点
-	list.AddNode(CycleElem{Name: "1张三", Age: 10})
-	list.AddNode(CycleElem{Name: "2李四", Age: 20})
-	list.AddNode(CycleElem{Name: "3王五", Age: 30})
-	list.AddNode(CycleElem{Name: "4赵柳", Age: 40})
-	list.AddNode(CycleElem{Name: "5小明", Age: 50})
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 删除第二个节点
-	list.Delete(2)
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 在第二节点处插入 "小红"
-	list.Insert(2, CycleElem{Name: "6小红", Age: 18})
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 获取第二节点
-	fmt.Println(list.Get(2))
 }

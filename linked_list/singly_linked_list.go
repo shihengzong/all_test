@@ -1,17 +1,16 @@
 /*
  * @Description: 数据结构 -- 单链表(Singly Linked List)
- * @Command: go test -v singly_linked_list_test.go
+ * @Command: go test -v singly_linked_list.go
  * @Author: zongsh
  * @Date: 2019-08-27 11:14:37
- * @LastEditTime: 2019-08-27 17:56:30
+ * @LastEditTime: 2019-08-28 16:33:54
  * @LastEditors: zongsh
  */
-package linked_list_test
+package linked_list
 
 import (
 	"errors"
 	"fmt"
-	"testing"
 )
 
 /*
@@ -123,31 +122,4 @@ func (n *SinglyLinkedNode) Get(index int) *Elem {
 		}
 	}
 	return &p.Node
-}
-
-func TestSinglyLinkedList(t *testing.T) {
-	// 初始化头结点
-	list := InitNode()
-
-	// 添加节点
-	list.AddNode(Elem{Name: "1张三", Age: 10})
-	list.AddNode(Elem{Name: "2李四", Age: 20})
-	list.AddNode(Elem{Name: "3王五", Age: 30})
-	list.AddNode(Elem{Name: "4赵柳", Age: 40})
-	list.AddNode(Elem{Name: "5小明", Age: 50})
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 删除第二个节点
-	list.Delete(2)
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 在第二节点处插入 "小红"
-	list.Insert(2, Elem{Name: "6小红", Age: 18})
-	// 遍历列表
-	fmt.Println(list.Traverse())
-
-	// 获取第二节点
-	fmt.Println(list.Get(2))
 }
