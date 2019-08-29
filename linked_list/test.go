@@ -3,7 +3,7 @@
  * @Command: go run main .go
  * @Author: zongsh
  * @Date: 2019-08-28 16:29:24
- * @LastEditTime: 2019-08-28 17:23:11
+ * @LastEditTime: 2019-08-29 17:14:06
  * @LastEditors: zongsh
  */
 package linked_list
@@ -146,6 +146,71 @@ func QueueTest() {
 	fmt.Println(queue.Size())
 }
 
+// 测试树
+func TreeQueueTest() {
+	// 先生成一个树
+	tree := Elem{
+		Name: "root节点",
+		Age:  7,
+	}
+
+	// 左子树
+	tree.LeftChild = &Elem{
+		Name: "左1节点",
+		Age:  4,
+	}
+
+	tree.LeftChild.LeftChild = &Elem{
+		Name: "左1节点 - 左2节点",
+		Age:  2,
+	}
+
+	tree.LeftChild.RightChild = &Elem{
+		Name: "左1节点 - 右2节点",
+		Age:  6,
+	}
+
+	tree.LeftChild.LeftChild.LeftChild = &Elem{
+		Name: "左1节点 - 左2节点 - 左3节点",
+		Age:  1,
+	}
+
+	tree.LeftChild.LeftChild.RightChild = &Elem{
+		Name: "左1节点 - 左2节点 - 右3节点",
+		Age:  3,
+	}
+
+	tree.LeftChild.RightChild.LeftChild = &Elem{
+		Name: "左1节点 - 右2节点 - 左3节点",
+		Age:  5,
+	}
+
+	// 右子树
+	tree.RightChild = &Elem{
+		Name: "右1节点",
+		Age:  9,
+	}
+	tree.RightChild.LeftChild = &Elem{
+		Name: "右1节点 - 左2节点",
+		Age:  8,
+	}
+
+	tree.RightChild.RightChild = &Elem{
+		Name: "右1节点 - 右2节点",
+		Age:  10,
+	}
+
+	// 进行前序遍历 (7,4,2,1,3,6,5,9,8,10)
+	list := InitTreeStack()
+	list.PreTraverse(tree)
+	// list.InTravesal(&tree)
+	// list.PostTravesal(&tree)
+
+	// 进行层次遍历(7,4,9,2,6,8,10,1,3,5)
+	// list := InitTreeQueue()
+	// list.LevelTraverse(tree)
+
+}
 func AllTest() {
 	// // 测试单链表
 	// SinglyLinkedListTest()
@@ -160,5 +225,8 @@ func AllTest() {
 	// StackTest()
 
 	// 测试队列
-	QueueTest()
+	// QueueTest()
+
+	// 测试树
+	TreeQueueTest()
 }

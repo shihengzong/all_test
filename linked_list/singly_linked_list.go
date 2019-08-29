@@ -3,7 +3,7 @@
  * @Command: go test -v singly_linked_list.go
  * @Author: zongsh
  * @Date: 2019-08-27 11:14:37
- * @LastEditTime: 2019-08-28 16:33:54
+ * @LastEditTime: 2019-08-29 14:28:31
  * @LastEditors: zongsh
  */
 package linked_list
@@ -17,8 +17,10 @@ import (
  * @description:表里的元素
  */
 type Elem struct {
-	Name string
-	Age  int
+	Name       string
+	Age        int
+	LeftChild  *Elem // 左子节点(用作树)
+	RightChild *Elem // 右子节点(用作树)
 }
 
 /*
