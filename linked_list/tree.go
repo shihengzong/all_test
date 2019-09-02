@@ -3,7 +3,7 @@
  * @Command: please edit
  * @Author: zongsh
  * @Date: 2019-08-29 10:58:34
- * @LastEditTime: 2019-08-29 17:21:04
+ * @LastEditTime: 2019-09-02 09:57:50
  * @LastEditors: zongsh
  * @Detail: 1. 叶子节点(没有子节点的节点)   2.树的度(当前节点有几个子节点 度就是几)   3.树的深度(有几层深度就是几)
  			4.排序二叉树:　 1)、若他的左子树不为空，则左子树上所有节点的值均小于它的根节点的值。
@@ -169,4 +169,25 @@ func (t *TreeQueue) LevelTraverse(node Elem) []*Elem {
 	}
 	fmt.Println(list)
 	return list
+}
+
+/**
+ * @-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:
+ * 排序二叉树
+ */
+
+func (t *Elem) TreeSort(e Elem) *Elem {
+	defer fmt.Println(t)
+	if t == nil {
+		t = &Elem{Age: e.Age}
+		fmt.Println(t)
+		return t
+	}
+	// 小的放左边
+	if t.Age > e.Age {
+		t.LeftChild = t.LeftChild.TreeSort(e)
+	} else {
+		t.RightChild = t.RightChild.TreeSort(e)
+	}
+	return t
 }

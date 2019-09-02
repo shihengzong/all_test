@@ -3,7 +3,7 @@
  * @Command: go run main .go
  * @Author: zongsh
  * @Date: 2019-08-28 16:29:24
- * @LastEditTime: 2019-08-29 17:14:06
+ * @LastEditTime: 2019-09-02 09:56:18
  * @LastEditors: zongsh
  */
 package linked_list
@@ -200,16 +200,64 @@ func TreeQueueTest() {
 		Age:  10,
 	}
 
-	// 进行前序遍历 (7,4,2,1,3,6,5,9,8,10)
 	list := InitTreeStack()
-	list.PreTraverse(tree)
-	// list.InTravesal(&tree)
+	// 进行前序遍历 (7,4,2,1,3,6,5,9,8,10)
+	// list.PreTraverse(tree)
+	// 中序
+	list.InTravesal(&tree)
+	// 后序
 	// list.PostTravesal(&tree)
 
 	// 进行层次遍历(7,4,9,2,6,8,10,1,3,5)
 	// list := InitTreeQueue()
 	// list.LevelTraverse(tree)
 
+}
+
+// 测试排序二叉树
+func TreeSortTest() {
+	var es []Elem
+	es = append(es,
+		Elem{
+			Age: 5,
+		},
+		Elem{
+			Age: 1,
+		},
+		Elem{
+			Age: 4,
+		},
+		Elem{
+			Age: 2,
+		},
+		Elem{
+			Age: 3,
+		},
+		Elem{
+			Age: 6,
+		},
+		Elem{
+			Age: 7,
+		},
+		Elem{
+			Age: 8,
+		},
+		Elem{
+			Age: 9,
+		},
+	)
+	count := len(es)
+	e := Elem{}
+	// t := &Elem{Name: "树信息", Age: 0}
+	var t *Elem
+	for i := 0; i < count; i++ {
+		e = es[i]
+		t.TreeSort(e)
+	}
+
+	// 采用中序遍历
+	list := InitTreeStack()
+	list.InTravesal(t)
 }
 func AllTest() {
 	// // 测试单链表
@@ -228,5 +276,8 @@ func AllTest() {
 	// QueueTest()
 
 	// 测试树
-	TreeQueueTest()
+	// TreeQueueTest()
+
+	// 测试排序二叉树
+	TreeSortTest()
 }
