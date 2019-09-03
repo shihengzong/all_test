@@ -1,0 +1,10 @@
+# hello dockerfile
+FROM golang:latest
+# ENV GOROOT /go/ \
+#    PATH $PATH:/go/bin/
+COPY hello /home/go/src/hello/
+WORKDIR /home/go/src/
+VOLUME /data/hello
+EXPOSE 9000/tcp
+
+CMD ["/bin/bash","-c","/home/go/src/hello/hello"]

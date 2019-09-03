@@ -1,0 +1,34 @@
+ 1. 下载gedit文本编辑器
+ 2. 更换镜像源
+    1.1) cd /etc/apt/
+    1.2) sudo cp sources.list sources.list.bak // 备份避免搞错没法恢复
+    1.3) sudo gedit sources.list  // 打开文件全部替换 
+        deb http://mirrors.aliyun.com/ubuntu/ xenial main
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial main
+
+        deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main
+
+        deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe
+        deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+        deb http://mirrors.aliyun.com/ubuntu/ xenial-security main
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main
+        deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+        deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe 
+ 3. sudo apt install update // 更新镜像源
+ 4. sudo apt install upgrade // 把所有软件升级成最新
+
+ 其他常用命令:
+dpkg -l  // 查看所有安装的软件
+
+
+// 设置远程登录
+1. sudo ps -e |grep ssh  // 检查是否安装sshd
+2. sudo apt-get install openssh-server  // 安装ssh
+3. sudo ps -e |grep ssh // 查看是否安装成功
+4. sudo ufw status // 查看防火墙状态(inactive 关闭,active 开启)
+5. sudo ufw enable  sudo ufw disable (开启/关闭防火墙)
+6. sudo service ssh start // 开启sshd  (stop/restart // 停止和重启)
