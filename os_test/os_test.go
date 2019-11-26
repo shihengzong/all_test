@@ -3,7 +3,7 @@
  * @Command: please edit
  * @Author: zongsh
  * @Date: 2019-09-02 17:14:24
- * @LastEditTime: 2019-09-02 17:24:18
+ * @LastEditTime: 2019-09-03 17:05:25
  * @LastEditors: zongsh
  */
 package os_test
@@ -15,6 +15,8 @@ import (
 	"os"
 	"testing"
 )
+
+// /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/usr/lib/go/bin:/usr/local/python3/bin:/home/zongsh-deppin/pip/pip.ini
 
 //创建一个文件夹
 func CreatFile() {

@@ -18,8 +18,8 @@
         deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main
         deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
         deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe 
- 3. sudo apt install update // 更新镜像源
- 4. sudo apt install upgrade // 把所有软件升级成最新
+ 3. sudo apt update // 更新镜像源
+ 4. sudo apt upgrade // 把所有软件升级成最新
 
  其他常用命令:
 dpkg -l  // 查看所有安装的软件
@@ -32,3 +32,8 @@ dpkg -l  // 查看所有安装的软件
 4. sudo ufw status // 查看防火墙状态(inactive 关闭,active 开启)
 5. sudo ufw enable  sudo ufw disable (开启/关闭防火墙)
 6. sudo service ssh start // 开启sshd  (stop/restart // 停止和重启)
+
+
+
+// 启动为守护进程
+# nohup ./mydaemon3 &
